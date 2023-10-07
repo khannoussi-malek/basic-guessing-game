@@ -6,6 +6,8 @@ var game = document.getElementById("game");
 var tryNumber = 0;
 var htmlTryNumber = document.getElementById("tryNumber");
 var historyHtml = document.getElementById("history");
+var state = document.getElementById("state");
+var avatar = document.getElementById("avatar");
 
 game.addEventListener("submit", e => {
   e.preventDefault();
@@ -79,8 +81,8 @@ const verifyResult = () => {
   // get the value of the input guess in the form "game"
   let guess = document.getElementById("guess").value;
   result.value = "";
-  //   result.value = "";
   if (isNaN(guess)) {
+    state.innerText = "🤦‍♂️🤦‍♀️";
     console.log("Please enter a number");
     guessHelper.className = "fontsize-sm redColor ";
   } else {
@@ -88,19 +90,39 @@ const verifyResult = () => {
     tryNumber++;
     if (!(guessInt > 100 || guessInt < 0)) {
       htmlTryNumber.value = "Number of tries: " + tryNumber;
+    } else {
+      state.innerText = "🤦";
     }
+
     guessHelper.className = "d-none";
+
     if (guessInt > 100 || guessInt < 0) {
+      state.innerText = "↔️";
       console.log("This number is out of range");
       support.value = "This number is out of range";
     } else if (guessInt > randomNumber) {
+      state.innerText = "⬇️";
       console.log("The number is too big");
       support.value = "The number is too big";
     } else if (guessInt < randomNumber) {
+      state.innerText = "⬆️";
       console.log("The number is too small");
       support.value = "The number is too small";
     } else if (guessInt === randomNumber) {
+      state.innerText = "🎉";
       win();
+    }
+    if (tryNumber > 20) {
+      avatar.innerText = "Go sleep";
+    }
+    if (tryNumber > 10) {
+      avatar.innerText = "☠️";
+    } else if (tryNumber > 8) {
+      avatar.innerText = "🤯";
+    } else if (tryNumber > 6) {
+      avatar.innerText = "😱";
+    } else if (tryNumber > 4) {
+      avatar.innerHTML = "😨";
     }
   }
 };
