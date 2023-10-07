@@ -112,7 +112,9 @@ const verifyResult = () => {
       state.innerText = "🎉";
       win();
     }
-    if (tryNumber >= 100) {
+    if (tryNumber >= 150) {
+      avatar.innerHTML = '<img src="./style/wa7ech.gif" />';
+    } else if (tryNumber >= 100) {
       avatar.innerHTML = `<img src="https://media.tenor.com/Pts1f-cVV9sAAAAd/tounsi-mti9er-tunisia.gif" alt="tounsi-mti9er-tunisia" border="0"/>`;
     } else if (tryNumber > 10) {
       avatar.innerText = "☠️";
