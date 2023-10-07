@@ -134,3 +134,12 @@ p {
 #history li:hover {
   background-color: #edf2f7;
 }
+
+#avatar {
+  font-size: 5rem;
+}
+#state {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+}
