@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guessing game</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body onload="constractor()">
+    <form id="game">
+      <h1 class="text-center fontsize-xl">Guessing game</h1>
+      <p class="text-center fontsize-lg">Pick a number between 1 and 100</p>
+      <div class="flex justify-content-center gap">
+        <button class="btn mx-md" type="button" onclick="showResult()">
+          Show result
+        </button>
+        <button class="btn mx-md" type="reset" onClick="constractor()">
+          Reset
+        </button>
+        <button class="btn mx-md" onclick="window.close();">Quit</button>
+      </div>
+      <div class="flex column aligne-item-center my-md borderRaduis-md px-xl">
+        <div>
+          <input class="input my-md" placeholder="Guess" id="guess" />
+          <p id="guess-helper" class="fontsize-sm redColor d-none">
+            Enter a number
+          </p>
+        </div>
+        <input
+          class="input my-md"
+          id="support"
+          disabled
+          placeholder="Support"
+        />
+        <input class="input my-md" id="tryNumber" disabled placeholder="" />
+        <input class="input my-md" id="result" disabled placeholder="Result" />
+      </div>
+      <div class="flex justify-content-center">
+        <button class="btn mx-md" type="button" onclick="clearHistory()">
+          clear history
+        </button>
+      </div>
+      <div id="history"></div>
+    </form>
+    <script src="/js/index.js"></script>
+  </body>
+</html>

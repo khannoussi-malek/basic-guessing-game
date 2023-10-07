@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "Rubik";
+  src: url("./Rubik/Rubik-VariableFont_wght.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik";
+}
+body {
+  margin: 0 5rem;
+  background-color: #f7fafc;
+}
+h1,
+p {
+  color: #2d3748;
+}
+.text-center {
+  text-align: center;
+}
+.fontsize-xl {
+  font-size: 40px;
+}
+
+.fontsize-lg {
+  font-size: 28px;
+}
+/* flex */
+.flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+.column {
+  flex-direction: column;
+}
+.aligne-item-center {
+  align-items: center;
+}
+/* raduis */
+.borderRaduis-md {
+  border-radius: 8px;
+}
+/* padding */
+.p-md {
+  padding: 0.5rem;
+}
+.px-xl {
+  padding-inline-start: 6rem;
+  padding-inline-end: 6rem;
+}
+
+/* Margin */
+.mx-md {
+  margin: 0 0.5rem;
+}
+.my-md {
+  margin: 0.5rem 0;
+}
+.mt-md {
+  margin-top: 0.5rem;
+}
+.d-none {
+  display: none;
+}
+/* Buttons */
+.btn {
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 1.5rem;
+  color: #fff;
+  background-color: #319795;
+  border-radius: 8px;
+  border: solid #718096 2px;
+  box-shadow: 1px 2px 2px 0px #4a556888;
+  transition-duration: 200ms;
+}
+.btn:hover {
+  background-color: #319795;
+}
+.btn:active {
+  background-color: #a0aec0;
+}
+
+/* Input */
+.input {
+  border-radius: 0.25rem;
+  border: solid #718096 0.5px;
+  padding: 0.25rem 0.75rem 0.25rem 0.5rem;
+  box-shadow: 3px 2px 2px 0px #4a556888;
+  background-color: #fff;
+  color: #2d3748;
+  border: solid #718096 2px;
+}
+.input:focus {
+  outline: none;
+  border: solid #319795 2px;
+}
+
+.fontsize-sm {
+  font-size: 14px;
+}
+.redColor {
+  color: #e53e3e;
+}
+#guess-helper {
+  padding: 0;
+  margin: 2px;
+}
+
+.bg-gray-100 {
+  background-color: #edf2f7;
+}
+
+#history {
+  margin-top: 1rem;
+}
+#history ul {
+  list-style: none;
+  padding: 0;
+}
+#history li {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 1px 2px 4px 0px #4a556888;
+}
+
+#history li:hover {
+  background-color: #edf2f7;
+}
