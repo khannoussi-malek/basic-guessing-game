@@ -9,29 +9,40 @@ var historyHtml = document.getElementById("history");
 var state = document.getElementById("state");
 var avatar = document.getElementById("avatar");
 var body = document.getElementsByTagName("body")[0];
+var localUser = localStorage.getItem("user")
+  ? localStorage.getItem("user")
+  : "";
+
 var gameHistory = localStorage.getItem("gameHistory")
   ? JSON.parse(localStorage.getItem("gameHistory"))
   : [];
 var clearHistoryBtn = document.getElementById("clearHistoryBtn");
+var autherName = document.getElementById("authName");
 game.addEventListener("submit", e => {
   e.preventDefault();
   verifyResult();
 });
 
-var user = localStorage.getItem("user") ? localStorage.getItem("user") : "";
 const auth = () => {
-  var user = localStorage.getItem("user") ? localStorage.getItem("user") : "";
-  if (!user) {
+  localUser = localStorage.getItem("user") ? localStorage.getItem("user") : "";
+  if (!localUser) {
     user = prompt("Enter your name");
     localStorage.setItem("user", user);
+    localUser = localStorage.getItem("user")
+      ? localStorage.getItem("user")
+      : "";
   }
-  console.log(user);
   updateHistory();
   clearHistoryBtn.className =
-    gameHistory.filter(h => h.user == user).length > 0 ? "btn mx-md" : "d-none";
+    gameHistory.filter(h => h.user == localUser).length > 0
+      ? "btn mx-md"
+      : "d-none";
   constractor();
+  document.getElementById("authName").innerText = `🗄 hi : ${localUser}`;
 };
 const constractor = () => {
+  document.getElementById("authName").innerText = `🗄 hi : ${localUser}`;
+
   tryNumber = 0;
   htmlTryNumber.value = "";
   result.value = "";
@@ -61,7 +72,7 @@ const updateHistory = () => {
     : [];
   let historyHtmlContent = "<ul>";
   gameHistory
-    .filter(h => h.user == user)
+    .filter(h => h.user == localUser)
     .map(({ tryNumber = "", randomNumber = "", date = "", user = "" }) => {
       historyHtmlContent += `<li><span>Try number:<br/> ${tryNumber}</span>  <span>🎯 <br/>${randomNumber}</span>  <span> ${formatDate(
         date
@@ -70,7 +81,6 @@ const updateHistory = () => {
   historyHtmlContent += "</ul>";
   historyHtml.innerHTML = "";
   historyHtml.innerHTML = historyHtmlContent;
-  console.log({ historyHtml, gameHistory });
 };
 const clearHistory = () => {
   localStorage.removeItem("gameHistory");
@@ -86,7 +96,7 @@ const win = () => {
     tryNumber: tryNumber,
     randomNumber: randomNumber,
     date: new Date(),
-    user,
+    user: localUser,
   };
   gameHistory.unshift(gameResult);
   localStorage.setItem("gameHistory", JSON.stringify(gameHistory));
