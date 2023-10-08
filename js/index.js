@@ -76,6 +76,7 @@ const updateHistory = () => {
   let historyHtmlContent = "<ul>";
   gameHistory
     .filter(h => h.user == localUser)
+    .sort((a, b) => a.tryNumber - b.tryNumber)
     .map(({ tryNumber = "", randomNumber = "", date = "", user = "" }) => {
       historyHtmlContent += `<li><span>Try number:<br/> ${tryNumber}</span>  <span>🎯 <br/>${randomNumber}</span>  <span> ${formatDate(
         date
