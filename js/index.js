@@ -137,7 +137,7 @@ const verifyResult = () => {
     if (tryNumber >= 150) {
       avatar.innerHTML = '<img src="./style/wa7ech.gif" />';
       body.style.backgroundImage = 'url("../style/hell-v2.gif")';
-      alert("Somoone is call 911 , we will need them soon 😂");
+      alert("Someone is call 911 please, we will need them soon :)");
     } else if (tryNumber >= 100) {
       body.style.backgroundImage = 'url("../style/hell-v1.gif")';
       avatar.innerHTML = `<img src="./style/tounsi-mti9er-tunisia.gif" alt="tounsi-mti9er-tunisia" width="80%" border="0"/>`;
