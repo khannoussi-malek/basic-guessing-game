@@ -27,10 +27,16 @@ const auth = () => {
   localUser = localStorage.getItem("user") ? localStorage.getItem("user") : "";
   if (!localUser) {
     user = prompt("Enter your name");
+    while (!user || !user.trim()) {
+      user = prompt("Enter your name");
+    }
     localStorage.setItem("user", user);
     localUser = localStorage.getItem("user")
       ? localStorage.getItem("user")
       : "";
+    document.getElementById("authName").innerText = `🗄 hi : ${
+      localUser ?? " "
+    }`;
   }
   updateHistory();
   clearHistoryBtn.className =
@@ -38,11 +44,8 @@ const auth = () => {
       ? "btn mx-md"
       : "d-none";
   constractor();
-  document.getElementById("authName").innerText = `🗄 hi : ${localUser}`;
 };
 const constractor = () => {
-  document.getElementById("authName").innerText = `🗄 hi : ${localUser}`;
-
   tryNumber = 0;
   htmlTryNumber.value = "";
   result.value = "";
@@ -107,6 +110,10 @@ const win = () => {
 };
 
 const verifyResult = () => {
+  if (!localUser) {
+    alert("Please enter your name");
+    auth();
+  }
   body.style.backgroundImage = 'url("../style/bg.gif")';
   avatar.innerHTML = "";
   let guess = document.getElementById("guess").value;
