@@ -3,14 +3,38 @@
   src: url("./Rubik/Rubik-VariableFont_wght.ttf");
 }
 * {
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Rubik";
 }
+.pointer {
+  cursor: pointer;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+#game {
+  max-width: 90vw;
+  background-color: #ffffff88;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: auto 1rem;
+}
 body {
-  margin: 0 5rem;
-  background-color: #f7fafc;
+  margin: min(1rem, 1vw);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("bg.gif");
+  background-position: center;
 }
 h1,
 p {
@@ -29,6 +53,8 @@ p {
 /* flex */
 .flex {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .justify-content-center {
@@ -57,6 +83,7 @@ p {
 .mx-md {
   margin: 0 0.5rem;
 }
+
 .my-md {
   margin: 0.5rem 0;
 }
@@ -69,6 +96,7 @@ p {
 /* Buttons */
 .btn {
   font-weight: 600;
+  cursor: pointer;
   font-size: 1.125rem;
   padding-inline-start: 1.5rem;
   padding-inline-end: 1.5rem;
@@ -88,11 +116,12 @@ p {
 
 /* Input */
 .input {
+  text-align: center;
   border-radius: 0.25rem;
   border: solid #718096 0.5px;
   padding: 0.25rem 0.75rem 0.25rem 0.5rem;
   box-shadow: 3px 2px 2px 0px #4a556888;
-  background-color: #fff;
+  background-color: #ffffffcc;
   color: #2d3748;
   border: solid #718096 2px;
 }
@@ -101,6 +130,12 @@ p {
   border: solid #319795 2px;
 }
 
+.fontsize-xl {
+  font-size: 40px;
+}
+.fontsize-lg {
+  font-size: 28px;
+}
 .fontsize-sm {
   font-size: 14px;
 }
@@ -124,17 +159,32 @@ p {
   padding: 0;
 }
 #history li {
+  font-size: 0.7rem;
+  align-items: center;
+  text-align: center;
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #ffffff55;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: space-between;
   box-shadow: 1px 2px 4px 0px #4a556888;
+}
+#history li:nth-child(odd) {
+  background-color: #a7cff655;
 }
 
 #history li:hover {
-  background-color: #edf2f7;
+  background-color: #edf2f788;
 }
-
+#history li span {
+  background-color: #718096;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+}
 #avatar {
   font-size: 5rem;
 }
